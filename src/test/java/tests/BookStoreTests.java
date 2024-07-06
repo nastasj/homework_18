@@ -21,7 +21,7 @@ public class BookStoreTests extends TestBase {
         BookStoreSteps step = new BookStoreSteps();
         Faker faker = new Faker();
         String userName = faker.name().username();
-        String password = faker.internet().password(8,10, true, true);
+        String password = faker.internet().password(8,10, true, true, true);
         String isbn = "9781449331818";
         step.userRegistrationApi(userName, password);
         step.getTokenApi(userName, password);
