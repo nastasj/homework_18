@@ -8,11 +8,18 @@ import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-public class ProfilePage extends BasePage {
+public class ProfilePage {
     public final SelenideElement deleteButton = $("#delete-record-undefined"),
             confirmButton = $("#closeSmallModal-ok"),
             bookRow = $(".rt-tbody").$(".rt-tr-group"),
             noRowsFoundLabel = $(".profile-wrapper").$(".rt-noData");
+
+    @Step("Removing banners")
+    public ProfilePage removeBanner() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+        return this;
+    }
 
     @Step("Open profile page")
     public ProfilePage openProfilePage() {
