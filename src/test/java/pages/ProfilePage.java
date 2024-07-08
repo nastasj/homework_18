@@ -18,6 +18,7 @@ public class ProfilePage extends BasePage {
     public ProfilePage openProfilePage() {
         open("/profile");
         bookRow.shouldHave(text("Learning JavaScript Design Patterns"));
+        removeBanner();
         return this;
     }
 
