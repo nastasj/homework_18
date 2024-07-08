@@ -28,9 +28,10 @@ public class BookStoreTests extends TestBase {
         LoginResponseModel loginResponse = step.loginUserApi(userName, password);
         step.addBookToProfileApi(loginResponse, isbn);
         step.setAuthCookie(loginResponse);
-        profilePage.openProfilePage();
-        profilePage.checkBookIsInProfile(isbn);
-        profilePage.deleteBook();
-        profilePage.checkBooksListIsEmpty();
+        profilePage.openProfilePage()
+            .removeBanner()
+            .checkBookIsInProfile(isbn)
+            .deleteBook()
+            .checkBooksListIsEmpty();
     }
 }

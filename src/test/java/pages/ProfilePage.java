@@ -25,7 +25,6 @@ public class ProfilePage {
     public ProfilePage openProfilePage() {
         open("/profile");
         bookRow.shouldHave(text("Learning JavaScript Design Patterns"));
-        removeBanner();
         return this;
     }
 
